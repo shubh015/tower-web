@@ -1,0 +1,111 @@
+@font-face {
+  font-family: "Bch";
+  src: url("./assets/fonts/BCH.games.woff2") format("woff2");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.towerBoxStyle {
+  @apply bg-[length:400%_100%] bg-[linear-gradient(225deg,rgb(119,255,168)_0%,rgb(255,224,129)_32.81%,rgb(255,173,142)_68.22%,rgb(165,146,255)_100%)];
+}
+
+.towerBoxStyle:nth-child(1) {
+  background-position: 0% 0%;
+}
+
+.towerBoxStyle:nth-child(2) {
+  background-position: 25% 25%;
+}
+
+.towerBoxStyle:nth-child(3) {
+  background-position: 50% 50%;
+}
+
+.towerBoxStyle:nth-child(4) {
+  background-position: 75% 75%;
+}
+
+.skull-animation {
+  position: relative;
+  width: 50%;
+  margin: auto;
+  height: 50%;
+  background-image: url("/images/skull.webp");
+  background-size: 400% 100%;
+}
+
+.skull-animate {
+  -sprite-animation-from: 0%;
+  --sprite-animation-to: -400%;
+  animation-name: skullAnimation;
+  animation-duration: 275ms;
+  animation-timing-function: steps(12);
+  animation-iteration-count: 2;
+}
+
+.coin-animation {
+  position: relative;
+  width: 50%;
+  margin: auto;
+  height: 50%;
+  background-image: url("/images/coin.webp");
+  background-size: 1200% 100%;
+}
+
+.coin-animate {
+  --sprite-animation-from: 0%;
+  --sprite-animation-to: -1200%;
+  animation-name: skullAnimation;
+  animation-duration: 275ms;
+  animation-timing-function: steps(12);
+  animation-iteration-count: 2;
+}
+
+@keyframes skullAnimation {
+  from {
+    background-position-x: var(--sprite-animation-from);
+  }
+
+  to {
+    background-position-x: var(--sprite-animation-to);
+  }
+}
+
+.hand-bounce {
+  animation: handBounce 400ms infinite alternate linear;
+}
+
+.hand-bounce-game-over-left {
+  animation: handBounceGameOverLeft 400ms 1 linear;
+}
+
+.animate-delay-100 {
+  animation-delay: 200ms;
+}
+
+@keyframes handBounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes handBounceGameOverLeft {
+  0%,
+  100% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(-15px, 10px);
+  }
+}
